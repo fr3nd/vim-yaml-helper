@@ -261,17 +261,17 @@ function! s:GetNodesWithIndent( indent )
 endfunction
 
 function! s:commands()
-	command! -buffer YamlGoToParent call s:GoToParent()
-	command! -buffer YamlGetFullPath call s:GetFullPath(1)
-	command! -buffer YamlDisplayFullPath call s:GetFullPath(0)
-	command! -buffer -nargs=1 YamlGoToKey call s:GoToKey("<args>")
+  command! -buffer YamlGoToParent call s:GoToParent()
+  command! -buffer YamlGetFullPath call s:GetFullPath(1)
+  command! -buffer YamlDisplayFullPath call s:GetFullPath(0)
+  command! -buffer -nargs=1 YamlGoToKey call s:GoToKey("<args>")
 endfunction
 
 augroup vim-yaml-helper
-	autocmd!
-	autocmd Filetype yaml call s:commands()
+  autocmd!
+  autocmd Filetype yaml call s:commands()
 
-	if get(g:, 'vim_yaml_helper#auto_display_path', 1)
-		autocmd CursorHold *.yml,*.yaml YamlDisplayFullPath
-	end
+  if get(g:, 'vim_yaml_helper#auto_display_path', 1)
+    autocmd CursorHold *.yml,*.yaml YamlDisplayFullPath
+  end
 augroup end
