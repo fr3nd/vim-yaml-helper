@@ -270,6 +270,7 @@ endfunction
 augroup vim-yaml-helper
   autocmd!
   autocmd Filetype yaml call s:commands()
+  autocmd Filetype yaml.ansible call s:commands()
   autocmd Filetype helm call s:commands()
 
   if get(g:, 'vim_yaml_helper#auto_display_path', 1)
